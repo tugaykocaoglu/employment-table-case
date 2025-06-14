@@ -1,0 +1,88 @@
+/* i18n.js */
+// Internationalization support
+export let lang =
+  localStorage.getItem('lang') || document.documentElement.lang || 'en';
+document.documentElement.lang = lang;
+
+const messages = {
+  en: {
+    employees: 'Employees',
+    employeeList: 'Employee List',
+    addNew: 'Add New',
+    addEmployee: 'Add Employee',
+    deleteSelected: 'Delete Selected',
+    view: 'View',
+    table: 'Table',
+    list: 'List',
+    search: 'Search',
+    prev: 'Prev',
+    next: 'Next',
+    firstName: 'First Name',
+    lastName: 'Last Name',
+    dateOfEmployment: 'Date of Employment',
+    dateOfBirth: 'Date of Birth',
+    phone: 'Phone Number',
+    email: 'Email Address',
+    department: 'Department',
+    position: 'Position',
+    save: 'Save',
+    cancel: 'Cancel',
+    deleteConfirm: 'Delete {name}?',
+    bulkDeleteConfirm: 'Delete {count} selected?',
+    selectAll: 'Select all',
+    analytics: 'Analytics',
+    tech: 'Tech',
+    confirm: 'Confirm',
+    editConfirm: 'Are you sure to edit this employee?',
+    noData: 'No data',
+    edit: 'Edit',
+    delete: 'Delete',
+    requiredValidationText: 'This field is required',
+    birthDateValidationText: 'Birth date must be before employment date.',
+    phoneValidationText: 'Phone must be 10 digits',
+    emailValidationText: 'Email is not valid',
+  },
+  tr: {
+    employees: 'Çalışanlar',
+    employeeList: 'Çalışan Listesi',
+    addNew: 'Yeni Ekle',
+    addEmployee: 'Çalışan Ekle',
+    deleteSelected: 'Seçilenleri Sil',
+    view: 'Görünüm',
+    table: 'Tablo',
+    list: 'Liste',
+    search: 'Ara',
+    prev: 'Önceki',
+    next: 'Sonraki',
+    firstName: 'Adı',
+    lastName: 'Soyadı',
+    dateOfEmployment: 'İşe Başlama Tarihi',
+    dateOfBirth: 'Doğum Tarihi',
+    phone: 'Telefon Numarası',
+    email: 'E-posta Adresi',
+    department: 'Bölüm',
+    position: 'Pozisyon',
+    save: 'Kaydet',
+    cancel: 'İptal',
+    deleteConfirm: '{name} silinsin mi?',
+    bulkDeleteConfirm: '{count} kayıt silinsin mi?',
+    selectAll: 'Hepsini seç',
+    analytics: 'Analitik',
+    tech: 'Teknoloji',
+    confirm: 'Onayla',
+    editConfirm: 'Bu çalışanı değiştirmek istediğinizden emin misiniz?',
+    noData: 'Veri yok',
+    edit: 'Güncelle',
+    delete: 'Sil',
+    requiredValidationText: 'Bu alan gerekli',
+    birthDateValidationText: 'Doğum tarihi işe alım tarihinden önce olmalıdır',
+    phoneValidationText: 'Telefon numarası 10 karakteri geçemez',
+    emailValidationText: 'Geçersiz email',
+  },
+};
+
+// Simple template replacement
+export function t(key, params = {}) {
+  const msg = (messages[lang] && messages[lang][key]) || key;
+  return msg.replace(/\{(\w+)\}/g, (_, k) => params[k] || '');
+}
