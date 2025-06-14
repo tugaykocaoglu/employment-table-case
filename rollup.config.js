@@ -44,7 +44,7 @@ export default {
     copy({
       targets: [
         {src: 'index.html', dest: 'dist'},
-        {src: 'public/*', dest: 'dist'},
+        {src: 'assets/*', dest: 'dist'},
       ],
       verbose: true,
     }),
